@@ -111,12 +111,20 @@ while True:
   if len(buffer) == len(words):
     break
   words = buffer
+
+is_correct = False  # Flag to track if the correct word was found
+
 for index, word in enumerate(words):
-  if index < 5:
-    if re.match('^[yY]', input('Is it "' + word + '"? ')):
-      print('yay ig')
-      break
-    continue
-  if input('okay what is it then: ') in words:
-    print('yea makes sense')
-    break
+    if index < 5:
+          if re.match('^[yY]', input('Is it "' + word + '"? ')):
+            print('yay ig')
+            is_correct = True
+            break
+      
+# If no correct word was found, ask if the user is lying
+if not is_correct:
+    guessed_word = input('Okay, what is it then: ').strip()
+    if guessed_word in words:
+        print('yea makes sense')
+    else:
+        print('stop lying')
