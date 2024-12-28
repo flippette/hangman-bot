@@ -125,6 +125,20 @@ for index, word in enumerate(words):
 if not is_correct:
     guessed_word = input('Okay, what is it then: ').strip()
     if guessed_word in words:
+-         print('yea makes sense')
+    else:
+        print('stop lying')
+```suggestion
+    if index < 5:
+          if re.match('^[yY]', input('Is it "' + word + '"? ')):
+            print('yay ig')
+            is_correct = True
+            break
+      
+# If no correct word was found, ask if the user is lying
+if not is_correct:
+    guessed_word = input('Okay, what is it then: ').strip()
+    if guessed_word in words:
         print('yea makes sense')
     else:
         print('stop lying')
